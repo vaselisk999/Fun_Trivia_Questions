@@ -97,6 +97,9 @@ function questions() {
     choices.innerHTML = "";
     // set question title name
     questionTitle.textContent = data[screen].question;
+    //start timer
+
+    timerStart()
 
     //choice buttons
     for (let index = 0; index < data[screen].answers.length; index++) {
@@ -108,18 +111,27 @@ function questions() {
     }
 }
 
+function timerStart(){
+    // timer count
+    var timerId = setInterval(() => {
+        timer--;
+        time.textContent = timer;
+    
+        if (timer <= 0) {
+            //reset all variables
+            clearInterval(timerId);
+            score = 0;
+            screen = 0;
+            timer = 150;
+            startBlock.setAttribute("class", "start");
+            questionsBlock.setAttribute("class", "hide");
+            endScreenBlock.setAttribute("class", "hide");
+        }
+    }, 1000)
+}
 
-// timer count
-var timerId = setInterval(() => {
-    // clearInterval(timerId);
-    timer--;
-    if (timer <= 0) {
-        clearInterval(timerId);
-        startBlock.setAttribute("class", "start");
-        questionsBlock.setAttribute("class", "hide");
-    }
 
-})
+
 
 
 
