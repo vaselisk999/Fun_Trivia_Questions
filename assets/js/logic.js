@@ -5,7 +5,7 @@ var score = 0;
 var screen = 0;
 var timer = 150;
 var initial = "";
-var highscoresPath = window.location.href.replace("index", "highscores")
+var highscoresPath = window.location.href.replace("index", "highscores");
 
 //buttons Elements
 
@@ -43,8 +43,6 @@ document.addEventListener("click", (e) => {
             if (initials.value === "") {
                 return
             }
-            // startBlock.setAttribute("class", "start");
-            // questionsBlock.setAttribute("class", "hide");
             submitResult();
             break;
         case "initials":
@@ -58,8 +56,8 @@ document.addEventListener("click", (e) => {
 })
 
 function submitResult() {
-    localStorage.set("score", score);
-    localStorage.set("initials", initials.value);
+    localStorage.setItem("score", score);
+    localStorage.setItem("initials", initials.value);
     window.location.href = highscoresPath
 }
 
