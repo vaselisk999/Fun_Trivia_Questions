@@ -20,15 +20,12 @@ var choices = document.querySelector("#choices");
 // questions title
 var questionTitle = document.getElementById("question-title");
 
-
-
-
 //buttons event listeners
 
 document.addEventListener("click", (e) => {
-
+    //get target button
     var target = e.target.getAttribute("id");
-
+    //screen toggle
     switch (target) {
         case "start":
             startBlock.setAttribute("class", "hide");
@@ -36,12 +33,22 @@ document.addEventListener("click", (e) => {
             questions()
             break;
         case "submit":
-            console.log("222");
             startBlock.setAttribute("class", "start");
             questionsBlock.setAttribute("class", "hide");
             break;
+        default:
+            choicesResult(target);
+            break;
     }
 })
+
+function choicesResult(target){
+    if(target){
+
+    }else{
+
+    }
+}
 
 
 function questions() {
@@ -49,14 +56,16 @@ function questions() {
     questionTitle.textContent = data[screen].question;
     
     for (let index = 0; index < data[screen].answers.length; index++) {
+        var buttonEl = document.createElement("button");
         const element = data[screen].answers[index];
-        var liEl = document.createElement("button");
-        console.log(element)
-        olEl.appendChild(liEl);
-        liEl.textContent = element.name
+        buttonEl.textContent = element.name;
+        buttonEl.setAttribute("id", element.isCorrect);
+        choices.appendChild(buttonEl);
     }
-    choices.appendChild(olEl);
 }
+
+
+// timer count
 
 var timerId = setInterval(() => {
     clearInterval(timerId);
