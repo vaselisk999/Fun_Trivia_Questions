@@ -13,3 +13,8 @@ document.getElementById("clear").addEventListener("click", () => {
     window.location.href = highscoresPath;
     liEl.textContent = ""
 })
+
+document.getElementById("goback").addEventListener("click", () => {
+    window.location.href = highscoresPath;
+})
+
