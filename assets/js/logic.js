@@ -5,7 +5,7 @@ var score = 0;
 var screen = 0;
 var timer = 150;
 var initial = "";
-var highscoresPath =  "/highscores.html";
+var highscoresPath = window.location.href.replace("index", "highscores");
 
 //buttons Elements
 
