@@ -6,7 +6,7 @@ var screen = 0;
 var timer = 150;
 var initial = "";
 var highscoresPath = window.location.href + "highscores.html";
-console.log(highscoresPath);
+console.log(window.location);
 //buttons Elements
 
 var start = document.getElementById("start");
