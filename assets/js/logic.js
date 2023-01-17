@@ -36,6 +36,8 @@ document.addEventListener("click", (e) => {
         case "start":
             startBlock.setAttribute("class", "hide");
             questionsBlock.setAttribute("class", "start");
+            //start timer
+            timerStart();
             questions();
             break;
         case "submit":
@@ -74,6 +76,8 @@ function choicesResult(target) {
         feedback.setAttribute("class", "feedback");
         feedback.textContent = "Correct!";
     } else {
+        //incorrect answers will penalize your score/time by ten seconds
+        score --;
         // add text Wrong
         feedback.textContent = "Wrong!";
     }
@@ -97,9 +101,6 @@ function questions() {
     choices.innerHTML = "";
     // set question title name
     questionTitle.textContent = data[screen].question;
-    //start timer
-
-    timerStart()
 
     //choice buttons
     for (let index = 0; index < data[screen].answers.length; index++) {
@@ -112,6 +113,7 @@ function questions() {
 }
 
 function timerStart(){
+    clearInterval(timerId);
     // timer count
     var timerId = setInterval(() => {
         timer--;
