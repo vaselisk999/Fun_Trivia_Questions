@@ -10,5 +10,6 @@ highscores.appendChild(liEl);
 document.getElementById("clear").addEventListener("click", () => {
     localStorage.setItem("score", score);
     localStorage.setItem("initials", initials.value);
-    window.location.href = highscoresPath
+    window.location.href = highscoresPath;
+    liEl.textContent = ""
 })
