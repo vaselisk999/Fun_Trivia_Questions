@@ -5,8 +5,13 @@ var score = 0;
 var screen = 0;
 var timer = 150;
 var initial = "";
-var highscoresPath = window.location.href + "highscores.html";
-console.log(window.location);
+var highscoresPath
+if(window.location.pathname.includes("index")){
+    highscoresPath = window.location.href.replace("index", "highscores");
+}else{
+    highscoresPath = window.location.href + "highscores.html";
+}
+console.log();
 //buttons Elements
 
 var start = document.getElementById("start");
